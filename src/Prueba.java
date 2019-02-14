@@ -137,6 +137,22 @@ class Calculadora extends JFrame{
 		resta.setBounds(280, 330, 90, 60);
 		panel.add(resta);
 		
+		//-----------------------------------
+		unoN=new JButton("1");
+		unoN.setBounds(10, 390, 90,60);
+		panel.add(unoN);
+		
+		dos=new JButton("2");
+		dos.setBounds(100, 390, 90, 60);
+		panel.add(dos);
+		
+		tres=new JButton("3");
+		tres.setBounds(190, 390, 90, 60);
+		panel.add(tres);
+		
+		suma=new JButton("+");
+		suma.setBounds(280, 390, 90, 60);
+		panel.add(suma);
 		
 		add(panel);
 	}
