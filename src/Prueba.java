@@ -119,6 +119,25 @@ class Calculadora extends JFrame{
 		multiplicacion=new JButton("X");
 		multiplicacion.setBounds(280, 270, 90, 60);
 		panel.add(multiplicacion);
+		
+		//------------------------------------
+		cuatro=new JButton("4");
+		cuatro.setBounds(10, 330, 90,60);
+		panel.add(cuatro);
+		
+		cinco=new JButton("5");
+		cinco.setBounds(100, 330, 90, 60);
+		panel.add(cinco);
+		
+		seis=new JButton("6");
+		seis.setBounds(190, 330, 90, 60);
+		panel.add(seis);
+		
+		resta=new JButton("-");
+		resta.setBounds(280, 330, 90, 60);
+		panel.add(resta);
+		
+		
 		add(panel);
 	}
 }
