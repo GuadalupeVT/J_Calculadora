@@ -14,13 +14,13 @@ class Calculadora extends JFrame{
 		setTitle("Calculadora");
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(395,500);
+		setSize(395,555);
 		setLocationRelativeTo(null);
 		setVisible(true);
 		
 		JPanel panel= new JPanel();
 		panel.setLayout(null);
-		panel.setSize(395,500);
+		panel.setSize(395,555);
 		
 		//componentes GUI
 		JLabel estandar = new JLabel("ESTÁNDAR");
@@ -153,6 +153,23 @@ class Calculadora extends JFrame{
 		suma=new JButton("+");
 		suma.setBounds(280, 390, 90, 60);
 		panel.add(suma);
+		
+		//----------------------
+		masMenos=new JButton("+/-");
+		masMenos.setBounds(10, 450, 90,60);
+		panel.add(masMenos);
+		
+		cero=new JButton("0");
+		cero.setBounds(100, 450, 90, 60);
+		panel.add(cero);
+		
+		punto=new JButton(".");
+		punto.setBounds(190, 450, 90, 60);
+		panel.add(punto);
+		
+		igual=new JButton("=");
+		igual.setBounds(280, 450, 90, 60);
+		panel.add(igual);
 		
 		add(panel);
 	}
