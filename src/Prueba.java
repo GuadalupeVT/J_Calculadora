@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Insets;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
@@ -94,157 +95,229 @@ class Calculadora extends JFrame{
 		panel.add(sep);
 		
 		//---------------------------------
-		porcentaje=new JButton("%");
+		JLabel texto1= new JLabel("  %");
+		texto1.setFont(new Font("Arial",Font.BOLD,24));
+		porcentaje=new JButton();
 		porcentaje.setBounds(10, 150, 90,60);
 		porcentaje.setOpaque(false);
 		porcentaje.setContentAreaFilled(false);
 		porcentaje.setBorderPainted(false);
+		porcentaje.add(texto1);
 		panel.add(porcentaje);
 		
-		raiz=new JButton("√");
+		JLabel texto2 = new JLabel("  √");
+		texto2.setFont(new Font("Arial",Font.BOLD,24));
+		raiz=new JButton();
 		raiz.setBounds(100, 150, 90, 60);
 		raiz.setOpaque(false);
 		raiz.setContentAreaFilled(false);
 		raiz.setBorderPainted(false);
+		raiz.add(texto2);
 		panel.add(raiz);
 		
-		potencia=new JButton("χ²");
+		JLabel texto3 = new JLabel("  χ²");
+		texto3.setFont(new Font("Arial",Font.BOLD,24));
+		potencia=new JButton();
 		potencia.setBounds(190, 150, 90, 60);
 		potencia.setOpaque(false);
 		potencia.setContentAreaFilled(false);
 		potencia.setBorderPainted(false);
+		potencia.add(texto3);
 		panel.add(potencia);
 		
-		fraccion=new JButton("1/x");
+		JLabel texto4 = new JLabel("  1/x");
+		texto4.setFont(new Font("Arial",Font.BOLD,24));
+		fraccion=new JButton();
 		fraccion.setBounds(280, 150, 90, 60);
 		fraccion.setOpaque(false);
 		fraccion.setContentAreaFilled(false);
 		fraccion.setBorderPainted(false);
+		fraccion.add(texto4);
 		panel.add(fraccion);
 		
 		//---------------------------
-		ce=new JButton("CE");
+		JLabel texto5= new JLabel("  CE");
+		texto5.setFont(new Font("Arial",Font.BOLD,20));
+		ce=new JButton();
 		ce.setBounds(10, 210, 90,60);
 		ce.setBackground(Color.LIGHT_GRAY);
 		ce.setBorderPainted(false);
+		ce.add(texto5);
 		panel.add(ce);
 		
-		c=new JButton("C");
+		JLabel texto6= new JLabel("  C");
+		texto6.setFont(new Font("Arial",Font.BOLD,20));
+		c=new JButton();
 		c.setBounds(100, 210, 90, 60);
 		c.setBackground(Color.LIGHT_GRAY);
 		c.setBorderPainted(false);
+		c.add(texto6);
 		panel.add(c);
 		
-		borrar=new JButton("<--");
+		JLabel texto7= new JLabel(" <---");
+		texto7.setFont(new Font("Arial",Font.BOLD,20));
+		borrar=new JButton();
 		borrar.setBounds(190, 210, 90, 60);
 		borrar.setBackground(Color.LIGHT_GRAY);
 		borrar.setBorderPainted(false);
+		borrar.add(texto7);
 		panel.add(borrar);
 		
-		division=new JButton("÷");
+		JLabel texto8= new JLabel("  ÷");
+		texto8.setFont(new Font("Arial",Font.BOLD,30));
+		division=new JButton();
 		division.setBounds(280, 210, 90, 60);
 		division.setBackground(Color.LIGHT_GRAY);
 		division.setBorderPainted(false);
+		division.add(texto8);
 		panel.add(division);
 		
 		//----------------------------------
-		siete=new JButton("7");
+		JLabel texto9= new JLabel("  7");
+		texto9.setFont(new Font("Arial",Font.BOLD,30));
+		siete=new JButton();
 		siete.setBounds(10, 270, 90,60);
 		siete.setBackground(Color.LIGHT_GRAY);
 		siete.setBorderPainted(false);
+		siete.add(texto9);
 		panel.add(siete);
 		
-		ocho=new JButton("8");
+		JLabel texto10= new JLabel("  8");
+		texto10.setFont(new Font("Arial",Font.BOLD,30));
+		ocho=new JButton();
 		ocho.setBounds(100, 270, 90, 60);
 		ocho.setBackground(Color.LIGHT_GRAY);
 		ocho.setBorderPainted(false);
+		ocho.add(texto10);
 		panel.add(ocho);
 		
-		nueve=new JButton("9");
+		JLabel texto11= new JLabel("  9");
+		texto11.setFont(new Font("Arial",Font.BOLD,30));
+		nueve=new JButton();
 		nueve.setBounds(190, 270, 90, 60);
 		nueve.setBackground(Color.LIGHT_GRAY);
 		nueve.setBorderPainted(false);
+		nueve.add(texto11);
 		panel.add(nueve);
 		
-		multiplicacion=new JButton("X");
+		JLabel texto12= new JLabel("  X");
+		texto12.setFont(new Font("Arial",Font.BOLD,26));
+		multiplicacion=new JButton();
 		multiplicacion.setBounds(280, 270, 90, 60);
 		multiplicacion.setBackground(Color.LIGHT_GRAY);
 		multiplicacion.setBorderPainted(false);
+		multiplicacion.add(texto12);
 		panel.add(multiplicacion);
 		
 		//------------------------------------
-		cuatro=new JButton("4");
+		JLabel texto13= new JLabel("  4");
+		texto13.setFont(new Font("Arial",Font.BOLD,30));
+		cuatro=new JButton();
 		cuatro.setBounds(10, 330, 90,60);
 		cuatro.setBackground(Color.LIGHT_GRAY);
 		cuatro.setBorderPainted(false);
+		cuatro.add(texto13);
 		panel.add(cuatro);
 		
-		cinco=new JButton("5");
+		JLabel texto14= new JLabel("  5");
+		texto14.setFont(new Font("Arial",Font.BOLD,30));
+		cinco=new JButton();
 		cinco.setBounds(100, 330, 90, 60);
 		cinco.setBackground(Color.LIGHT_GRAY);
 		cinco.setBorderPainted(false);
+		cinco.add(texto14);
 		panel.add(cinco);
 		
-		seis=new JButton("6");
+		JLabel texto15= new JLabel("  6");
+		texto15.setFont(new Font("Arial",Font.BOLD,30));
+		seis=new JButton();
 		seis.setBounds(190, 330, 90, 60);
 		seis.setBackground(Color.LIGHT_GRAY);
 		seis.setBorderPainted(false);
+		seis.add(texto15);
 		panel.add(seis);
 		
-		resta=new JButton("-");
+		JLabel texto16= new JLabel("   -");
+		texto16.setFont(new Font("Arial",Font.BOLD,26));
+		resta=new JButton();
 		resta.setBounds(280, 330, 90, 60);
 		resta.setBackground(Color.LIGHT_GRAY);
 		resta.setBorderPainted(false);
+		resta.add(texto16);
 		panel.add(resta);
 		
 		//-----------------------------------
-		unoN=new JButton("1");
+		JLabel texto17= new JLabel("  1");
+		texto17.setFont(new Font("Arial",Font.BOLD,30));
+		unoN=new JButton();
 		unoN.setBounds(10, 390, 90,60);
 		unoN.setBackground(Color.LIGHT_GRAY);
 		unoN.setBorderPainted(false);
+		unoN.add(texto17);
 		panel.add(unoN);
 		
-		dos=new JButton("2");
+		JLabel texto18= new JLabel("  2");
+		texto18.setFont(new Font("Arial",Font.BOLD,30));
+		dos=new JButton();
 		dos.setBounds(100, 390, 90, 60);
 		dos.setBackground(Color.LIGHT_GRAY);
 		dos.setBorderPainted(false);
+		dos.add(texto18);
 		panel.add(dos);
 		
-		tres=new JButton("3");
+		JLabel texto19= new JLabel("  3");
+		texto19.setFont(new Font("Arial",Font.BOLD,30));
+		tres=new JButton();
 		tres.setBounds(190, 390, 90, 60);
 		tres.setBackground(Color.LIGHT_GRAY);
 		tres.setBorderPainted(false);
+		tres.add(texto19);
 		panel.add(tres);
 		
-		suma=new JButton("+");
+		JLabel texto20= new JLabel("   +");
+		texto20.setFont(new Font("Arial",Font.BOLD,26));
+		suma=new JButton();
 		suma.setBounds(280, 390, 90, 60);
 		suma.setBackground(Color.LIGHT_GRAY);
 		suma.setBorderPainted(false);
+		suma.add(texto20);
 		panel.add(suma);
 		
 		//----------------------
-		masMenos=new JButton("+/-");
+		JLabel texto21= new JLabel(" +/-");
+		texto21.setFont(new Font("Arial",Font.BOLD,28));
+		masMenos=new JButton();
 		masMenos.setBounds(10, 450, 90,60);
 		masMenos.setBackground(Color.LIGHT_GRAY);
 		masMenos.setBorderPainted(false);
+		masMenos.add(texto21);
 		panel.add(masMenos);
 		
-		cero=new JButton("0");
+		JLabel texto22= new JLabel("  0");
+		texto22.setFont(new Font("Arial",Font.BOLD,30));
+		cero=new JButton();
 		cero.setBounds(100, 450, 90, 60);
 		cero.setBackground(Color.LIGHT_GRAY);
 		cero.setBorderPainted(false);
+		cero.add(texto22);
 		panel.add(cero);
 		
-		punto=new JButton(".");
+		JLabel texto23= new JLabel("  .");
+		texto23.setFont(new Font("Arial",Font.BOLD,30));
+		punto=new JButton();
 		punto.setBounds(190, 450, 90, 60);
 		punto.setBackground(Color.LIGHT_GRAY);
 		punto.setBorderPainted(false);
+		punto.add(texto23);
 		panel.add(punto);
 		
-		igual=new JButton("=");
+		JLabel texto24= new JLabel("  =");
+		texto24.setFont(new Font("Arial",Font.BOLD,32));
+		igual=new JButton();
 		igual.setBounds(280, 450, 90, 60);
 		igual.setBackground(Color.LIGHT_GRAY);
 		igual.setBorderPainted(false);
+		igual.add(texto24);
 		panel.add(igual);
 		
 		add(panel);
