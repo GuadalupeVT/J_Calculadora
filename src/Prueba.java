@@ -7,7 +7,8 @@ import javax.swing.*;
 
 class Calculadora extends JFrame{
 	JTextField entrada, uno;
-	JButton porcentaje, raiz,potencia,fraccion;
+	JButton porcentaje, raiz,potencia,fraccion,ce,c,borrar,division,siete,ocho,nueve,multiplicacion;
+	JButton cuatro,cinco,seis,resta,unoN,dos,tres,suma,masMenos,cero,punto,igual;
 	
 	public Calculadora() {
 		setTitle("Calculadora");
@@ -68,7 +69,7 @@ class Calculadora extends JFrame{
 		mf.setBounds(310, 120, 60, 30);
 		mf.setToolTipText("Memoria");
 		panel.add(mf);
-		
+		//---------------------------------
 		porcentaje=new JButton("%");
 		porcentaje.setBounds(10, 150, 90,60);
 		panel.add(porcentaje);
@@ -85,6 +86,39 @@ class Calculadora extends JFrame{
 		fraccion.setBounds(280, 150, 90, 60);
 		panel.add(fraccion);
 		
+		//---------------------------
+		ce=new JButton("CE");
+		ce.setBounds(10, 210, 90,60);
+		panel.add(ce);
+		
+		c=new JButton("C");
+		c.setBounds(100, 210, 90, 60);
+		panel.add(c);
+		
+		borrar=new JButton("<--");
+		borrar.setBounds(190, 210, 90, 60);
+		panel.add(borrar);
+		
+		division=new JButton("÷");
+		division.setBounds(280, 210, 90, 60);
+		panel.add(division);
+		
+		//----------------------------------
+		siete=new JButton("7");
+		siete.setBounds(10, 270, 90,60);
+		panel.add(siete);
+		
+		ocho=new JButton("8");
+		ocho.setBounds(100, 270, 90, 60);
+		panel.add(ocho);
+		
+		nueve=new JButton("9");
+		nueve.setBounds(190, 270, 90, 60);
+		panel.add(nueve);
+		
+		multiplicacion=new JButton("X");
+		multiplicacion.setBounds(280, 270, 90, 60);
+		panel.add(multiplicacion);
 		add(panel);
 	}
 }
