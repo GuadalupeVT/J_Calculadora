@@ -360,6 +360,9 @@ class Calculadora extends JFrame implements ActionListener{
 		entrada.setFont(new Font("Arial",Font.BOLD,40));
 		entrada.setHorizontalAlignment(4);
 		lectura.setHorizontalAlignment(4);
+		double num1=0,num2=0;
+		
+		
 		if (e.getSource()==uno) {
 			entrada.setText(entrada.getText()+"1");
 		}
@@ -391,8 +394,21 @@ class Calculadora extends JFrame implements ActionListener{
 			entrada.setText(entrada.getText()+"0");
 		}
 		if (e.getSource()==suma) {
-			lectura.setText(lectura.getText()+entrada.getText());
+			
+			if(lectura.getText().equals("")) {
+				lectura.setText(entrada.getText());
+			}else {
+				num1=Double.parseDouble(lectura.getText());
+			}
+			if(entrada.getText().equals("")) {
+				num2=0;
+			}else {
+				num2=Double.parseDouble(entrada.getText());
+			}
+			lectura.setText(String.valueOf(op.sumar(num1, num2)));
+			//entrada.setText(String.valueOf(op.sumar(num1, num2)));
 			entrada.setText("");
+			
 		}
 	}
 }
