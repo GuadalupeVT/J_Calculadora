@@ -7,6 +7,7 @@ import javax.swing.*;
 
 class Calculadora extends JFrame{
 	JTextField entrada, uno;
+	JButton porcentaje, raiz,potencia,fraccion;
 	
 	public Calculadora() {
 		setTitle("Calculadora");
@@ -21,7 +22,8 @@ class Calculadora extends JFrame{
 		panel.setSize(395,500);
 		
 		//componentes GUI
-		JLabel estandar = new JLabel("EST�NDAR");
+		JLabel estandar = new JLabel("ESTÁNDAR");
+		estandar.setFont(new Font("Arial",Font.BOLD,14));
 		estandar.setBounds(5, 5, 100, 10);
 		panel.add(estandar);
 		
@@ -67,6 +69,21 @@ class Calculadora extends JFrame{
 		mf.setToolTipText("Memoria");
 		panel.add(mf);
 		
+		porcentaje=new JButton("%");
+		porcentaje.setBounds(10, 150, 90,60);
+		panel.add(porcentaje);
+		
+		raiz=new JButton("√");
+		raiz.setBounds(100, 150, 90, 60);
+		panel.add(raiz);
+		
+		potencia=new JButton("χ²");
+		potencia.setBounds(190, 150, 90, 60);
+		panel.add(potencia);
+		
+		fraccion=new JButton("1/x");
+		fraccion.setBounds(280, 150, 90, 60);
+		panel.add(fraccion);
 		
 		add(panel);
 	}
