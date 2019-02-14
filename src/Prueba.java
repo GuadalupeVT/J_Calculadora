@@ -2,14 +2,33 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
 
-class Calculadora extends JFrame{
-	JTextField entrada, uno;
+class Operaciones{
+	
+	public double sumar(double n1, double n2) {
+		return n1+n2;
+	}
+	
+	public double restar (double n1, double n2) {
+		return n1-n2;
+	}
+	
+	public double multiplicar (double n1, double n2) {
+		return n1*n2;
+	}
+	
+	public double dividir (double n1, double n2) {
+		return n1/n2;
+	}
+}//class operaciones
+
+class Calculadora extends JFrame implements ActionListener{
+	JTextField entrada, lectura;
 	JButton porcentaje, raiz,potencia,fraccion,ce,c,borrar,division,siete,ocho,nueve,multiplicacion;
-	JButton cuatro,cinco,seis,resta,unoN,dos,tres,suma,masMenos,cero,punto,igual;
+	JButton cuatro,cinco,seis,resta,uno,dos,tres,suma,masMenos,cero,punto,igual;
 	
 	public Calculadora() {
 		setTitle("Calculadora");
@@ -29,17 +48,17 @@ class Calculadora extends JFrame{
 		estandar.setBounds(5, 5, 100, 10);
 		panel.add(estandar);
 		
+		lectura=new JTextField();
+		lectura.setEditable(false);
+	  //entrada.setBackground(panel.getBackground());
+		lectura.setBounds(10,25,360,20);
+		panel.add(lectura);
+		
 		entrada=new JTextField();
 		entrada.setEditable(false);
-	  //entrada.setBackground(panel.getBackground());
-		entrada.setBounds(250,25,120,20);
-		panel.add(entrada);
-		
-		uno=new JTextField();
-		uno.setEditable(false);
 		//uno.setBackground(panel.getBackground());
-		uno.setBounds(250,50,120,60);
-		panel.add(uno);
+		entrada.setBounds(10,50,360,60);
+		panel.add(entrada);
 		
 		JButton mc=new JButton ("MC");
 		mc.setBounds(10, 120, 60, 30);
@@ -180,6 +199,7 @@ class Calculadora extends JFrame{
 		siete.setBackground(Color.LIGHT_GRAY);
 		siete.setBorderPainted(false);
 		siete.add(texto9);
+		siete.addActionListener(this);
 		panel.add(siete);
 		
 		JLabel texto10= new JLabel("  8");
@@ -189,6 +209,7 @@ class Calculadora extends JFrame{
 		ocho.setBackground(Color.LIGHT_GRAY);
 		ocho.setBorderPainted(false);
 		ocho.add(texto10);
+		ocho.addActionListener(this);
 		panel.add(ocho);
 		
 		JLabel texto11= new JLabel("  9");
@@ -198,6 +219,7 @@ class Calculadora extends JFrame{
 		nueve.setBackground(Color.LIGHT_GRAY);
 		nueve.setBorderPainted(false);
 		nueve.add(texto11);
+		nueve.addActionListener(this);
 		panel.add(nueve);
 		
 		JLabel texto12= new JLabel("  X");
@@ -217,6 +239,7 @@ class Calculadora extends JFrame{
 		cuatro.setBackground(Color.LIGHT_GRAY);
 		cuatro.setBorderPainted(false);
 		cuatro.add(texto13);
+		cuatro.addActionListener(this);
 		panel.add(cuatro);
 		
 		JLabel texto14= new JLabel("  5");
@@ -226,6 +249,7 @@ class Calculadora extends JFrame{
 		cinco.setBackground(Color.LIGHT_GRAY);
 		cinco.setBorderPainted(false);
 		cinco.add(texto14);
+		cinco.addActionListener(this);
 		panel.add(cinco);
 		
 		JLabel texto15= new JLabel("  6");
@@ -235,6 +259,7 @@ class Calculadora extends JFrame{
 		seis.setBackground(Color.LIGHT_GRAY);
 		seis.setBorderPainted(false);
 		seis.add(texto15);
+		seis.addActionListener(this);
 		panel.add(seis);
 		
 		JLabel texto16= new JLabel("   -");
@@ -249,12 +274,13 @@ class Calculadora extends JFrame{
 		//-----------------------------------
 		JLabel texto17= new JLabel("  1");
 		texto17.setFont(new Font("Arial",Font.BOLD,30));
-		unoN=new JButton();
-		unoN.setBounds(10, 390, 90,60);
-		unoN.setBackground(Color.LIGHT_GRAY);
-		unoN.setBorderPainted(false);
-		unoN.add(texto17);
-		panel.add(unoN);
+		uno=new JButton();
+		uno.setBounds(10, 390, 90,60);
+		uno.setBackground(Color.LIGHT_GRAY);
+		uno.setBorderPainted(false);
+		uno.add(texto17);
+		uno.addActionListener(this);
+		panel.add(uno);
 		
 		JLabel texto18= new JLabel("  2");
 		texto18.setFont(new Font("Arial",Font.BOLD,30));
@@ -263,6 +289,7 @@ class Calculadora extends JFrame{
 		dos.setBackground(Color.LIGHT_GRAY);
 		dos.setBorderPainted(false);
 		dos.add(texto18);
+		dos.addActionListener(this);
 		panel.add(dos);
 		
 		JLabel texto19= new JLabel("  3");
@@ -272,6 +299,7 @@ class Calculadora extends JFrame{
 		tres.setBackground(Color.LIGHT_GRAY);
 		tres.setBorderPainted(false);
 		tres.add(texto19);
+		tres.addActionListener(this);
 		panel.add(tres);
 		
 		JLabel texto20= new JLabel("   +");
@@ -281,6 +309,7 @@ class Calculadora extends JFrame{
 		suma.setBackground(Color.LIGHT_GRAY);
 		suma.setBorderPainted(false);
 		suma.add(texto20);
+		suma.addActionListener(this);
 		panel.add(suma);
 		
 		//----------------------
@@ -300,6 +329,7 @@ class Calculadora extends JFrame{
 		cero.setBackground(Color.LIGHT_GRAY);
 		cero.setBorderPainted(false);
 		cero.add(texto22);
+		cero.addActionListener(this);
 		panel.add(cero);
 		
 		JLabel texto23= new JLabel("  .");
@@ -318,9 +348,52 @@ class Calculadora extends JFrame{
 		igual.setBackground(Color.LIGHT_GRAY);
 		igual.setBorderPainted(false);
 		igual.add(texto24);
+		igual.addActionListener(this);
 		panel.add(igual);
 		
 		add(panel);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Operaciones op=new Operaciones();
+		entrada.setFont(new Font("Arial",Font.BOLD,40));
+		entrada.setHorizontalAlignment(4);
+		lectura.setHorizontalAlignment(4);
+		if (e.getSource()==uno) {
+			entrada.setText(entrada.getText()+"1");
+		}
+		if (e.getSource()==dos) {
+			entrada.setText(entrada.getText()+"2");
+		}
+		if (e.getSource()==tres) {
+			entrada.setText(entrada.getText()+"3");
+		}
+		if (e.getSource()==cuatro) {
+			entrada.setText(entrada.getText()+"4");
+		}
+		if (e.getSource()==cinco) {
+			entrada.setText(entrada.getText()+"5");
+		}
+		if (e.getSource()==seis) {
+			entrada.setText(entrada.getText()+"6");
+		}
+		if (e.getSource()==siete) {
+			entrada.setText(entrada.getText()+"7");
+		}
+		if (e.getSource()==ocho) {
+			entrada.setText(entrada.getText()+"8");
+		}
+		if (e.getSource()==nueve) {
+			entrada.setText(entrada.getText()+"9");
+		}
+		if (e.getSource()==cero) {
+			entrada.setText(entrada.getText()+"0");
+		}
+		if (e.getSource()==suma) {
+			lectura.setText(lectura.getText()+entrada.getText());
+			entrada.setText("");
+		}
 	}
 }
 
