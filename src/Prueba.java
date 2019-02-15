@@ -494,6 +494,10 @@ class Calculadora extends JFrame implements ActionListener{
 			entrada.setText("0");
 		}//boton c
 		
+		if(e.getSource()==ce) {
+			entrada.setText("0");
+		}//boton ce
+		
 		}catch(NumberFormatException e1) {
 			JOptionPane.showMessageDialog(this,"Debes ingresar NUMEROS CORRECTOS");
 		}catch(StringIndexOutOfBoundsException e2) {
