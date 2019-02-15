@@ -29,6 +29,7 @@ class Calculadora extends JFrame implements ActionListener{
 	JTextField entrada, lectura;
 	JButton porcentaje, raiz,potencia,fraccion,ce,c,borrar,division,siete,ocho,nueve,multiplicacion;
 	JButton cuatro,cinco,seis,resta,uno,dos,tres,suma,masMenos,cero,punto,igual;
+	String botonPulsado="";
 	
 	public Calculadora() {
 		setTitle("Calculadora");
@@ -269,6 +270,7 @@ class Calculadora extends JFrame implements ActionListener{
 		resta.setBackground(Color.LIGHT_GRAY);
 		resta.setBorderPainted(false);
 		resta.add(texto16);
+		resta.addActionListener(this);
 		panel.add(resta);
 		
 		//-----------------------------------
@@ -353,7 +355,6 @@ class Calculadora extends JFrame implements ActionListener{
 		
 		add(panel);
 	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Operaciones op=new Operaciones();
@@ -394,7 +395,7 @@ class Calculadora extends JFrame implements ActionListener{
 			entrada.setText(entrada.getText()+"0");
 		}
 		if (e.getSource()==suma) {
-			
+			botonPulsado="suma";
 			if(lectura.getText().equals("")) {
 				lectura.setText(entrada.getText());
 			}else {
@@ -408,8 +409,40 @@ class Calculadora extends JFrame implements ActionListener{
 			lectura.setText(String.valueOf(op.sumar(num1, num2)));
 			//entrada.setText(String.valueOf(op.sumar(num1, num2)));
 			entrada.setText("");
-			
-		}
+		}//boton suma
+		
+		if (e.getSource()==resta) {
+			botonPulsado="resta";
+			if(lectura.getText().equals("")) {
+				lectura.setText(entrada.getText());
+			}else {
+				num1=Double.parseDouble(lectura.getText());
+			}
+			if(entrada.getText().equals("")) {
+				num2=0;
+			}else {
+				num2=Double.parseDouble(entrada.getText())*-1;
+			}
+			lectura.setText(String.valueOf(op.restar(num1, num2)));
+			entrada.setText("");
+		}//boton resta
+		
+		if(e.getSource()==igual) {
+			if(botonPulsado.equals("suma")) {
+				double n1=Double.parseDouble(lectura.getText());
+				double n2=Double.parseDouble(entrada.getText());
+				entrada.setText(String.valueOf(op.sumar(n1, n2)));
+				lectura.setText("");
+			}
+			if(botonPulsado.equals("resta")) {
+				double n1=Double.parseDouble(lectura.getText());
+				double n2=Double.parseDouble(entrada.getText());
+				entrada.setText(String.valueOf(op.restar(n1, n2)));
+				lectura.setText("");
+			}
+				
+		} //Boton igual
+		
 	}
 }
 
