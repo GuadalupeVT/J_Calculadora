@@ -23,11 +23,14 @@ class Operaciones{
 	public double dividir (double n1, double n2) {
 		return n1/n2;
 	}
+	public double residuo(double n1, double n2) {
+		return n1%n2;
+	}
 }//class operaciones
 
 class Calculadora extends JFrame implements ActionListener{
 	JTextField entrada, lectura;
-	JButton porcentaje, raiz,potencia,fraccion,ce,c,borrar,division,siete,ocho,nueve,multiplicacion;
+	JButton residuo, raiz,potencia,fraccion,ce,c,borrar,division,siete,ocho,nueve,multiplicacion;
 	JButton cuatro,cinco,seis,resta,uno,dos,tres,suma,masMenos,cero,punto,igual;
 	String botonPulsado="";
 	
@@ -117,13 +120,14 @@ class Calculadora extends JFrame implements ActionListener{
 		//---------------------------------
 		JLabel texto1= new JLabel("  %");
 		texto1.setFont(new Font("Arial",Font.BOLD,24));
-		porcentaje=new JButton();
-		porcentaje.setBounds(10, 150, 90,60);
-		porcentaje.setOpaque(false);
-		porcentaje.setContentAreaFilled(false);
-		porcentaje.setBorderPainted(false);
-		porcentaje.add(texto1);
-		panel.add(porcentaje);
+		residuo=new JButton();
+		residuo.setBounds(10, 150, 90,60);
+		residuo.setOpaque(false);
+		residuo.setContentAreaFilled(false);
+		residuo.setBorderPainted(false);
+		residuo.add(texto1);
+		residuo.addActionListener(this);
+		panel.add(residuo);
 		
 		JLabel texto2 = new JLabel("  √");
 		texto2.setFont(new Font("Arial",Font.BOLD,24));
@@ -466,6 +470,20 @@ class Calculadora extends JFrame implements ActionListener{
 			lectura.setText(String.valueOf(op.dividir(num1, num2)));
 			entrada.setText("");
 		}//boton division
+		
+		if (e.getSource()==residuo) {
+			botonPulsado="division";
+			
+			if(lectura.getText().equals("")) {
+				lectura.setText(entrada.getText());
+				entrada.setText(entrada.getText());
+			}
+			
+			num1=Double.parseDouble(lectura.getText());
+			num2=Double.parseDouble(entrada.getText());
+			lectura.setText(String.valueOf(op.residuo(num1, num2)));
+			entrada.setText("");
+		}//boton residuo
 		
 		if(e.getSource()==igual) {
 			if(botonPulsado.equals("suma")) {
