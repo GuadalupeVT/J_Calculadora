@@ -163,6 +163,7 @@ class Calculadora extends JFrame implements ActionListener{
 		ce.setBackground(Color.LIGHT_GRAY);
 		ce.setBorderPainted(false);
 		ce.add(texto5);
+		ce.addActionListener(this);
 		panel.add(ce);
 		
 		JLabel texto6= new JLabel("  C");
@@ -172,6 +173,7 @@ class Calculadora extends JFrame implements ActionListener{
 		c.setBackground(Color.LIGHT_GRAY);
 		c.setBorderPainted(false);
 		c.add(texto6);
+		c.addActionListener(this);
 		panel.add(c);
 		
 		JLabel texto7= new JLabel(" <---");
@@ -487,6 +489,10 @@ class Calculadora extends JFrame implements ActionListener{
 			entrada.setText(String.valueOf(num));
 		}//boton masMenos
 		
+		if(e.getSource()==c) {
+			lectura.setText("");
+			entrada.setText("0");
+		}//boton c
 		
 		}catch(NumberFormatException e1) {
 			JOptionPane.showMessageDialog(this,"Debes ingresar NUMEROS CORRECTOS");
