@@ -325,6 +325,7 @@ class Calculadora extends JFrame implements ActionListener{
 		masMenos.setBackground(Color.LIGHT_GRAY);
 		masMenos.setBorderPainted(false);
 		masMenos.add(texto21);
+		masMenos.addActionListener(this);
 		panel.add(masMenos);
 		
 		JLabel texto22= new JLabel("  0");
@@ -479,12 +480,21 @@ class Calculadora extends JFrame implements ActionListener{
 			String cadena=entrada.getText();
 			cadena=cadena.substring(0, cadena.length()-1);
 			entrada.setText(cadena);
-		}
+		}//boton borrar
+		
+		if (e.getSource()==masMenos) {
+			double num=Double.parseDouble(entrada.getText())*-1;
+			entrada.setText(String.valueOf(num));
+		}//boton masMenos
+		
+		
 		}catch(NumberFormatException e1) {
 			JOptionPane.showMessageDialog(this,"Debes ingresar NUMEROS CORRECTOS");
 		}catch(StringIndexOutOfBoundsException e2) {
 			JOptionPane.showMessageDialog(this,"No hay números que borrar");
 		}
+		
+		
 	}//actionPerformed
 }//class calculadora
 
