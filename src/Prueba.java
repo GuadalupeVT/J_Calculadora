@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+
 import javax.swing.*;
 
 class Operaciones{
@@ -61,15 +63,15 @@ class Calculadora extends JFrame implements ActionListener{
 		estandar.setBounds(5, 5, 100, 10);
 		panel.add(estandar);
 		
-		lectura=new JTextField();
+		lectura=new JTextField(10);
 		lectura.setEditable(false);
-	  //entrada.setBackground(panel.getBackground());
+	    lectura.setBorder(null);
 		lectura.setBounds(10,25,360,20);
 		panel.add(lectura);
 		
-		entrada=new JTextField();
+		entrada=new JTextField(10);
 		entrada.setEditable(false);
-		//uno.setBackground(panel.getBackground());
+		entrada.setBorder(null);
 		entrada.setBounds(10,50,360,60);
 		panel.add(entrada);
 		
