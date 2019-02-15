@@ -488,9 +488,12 @@ class Calculadora extends JFrame implements ActionListener{
 			entrada.setText(String.valueOf(op.raiz(num1)));
 		}//boton raiz
 		
+		if(e.getSource()==fraccion) {
+			num1=Double.parseDouble(entrada.getText());
+			entrada.setText(String.valueOf(op.fraccion(num1)));
+		}//boton fraccion
+		
 		if (e.getSource()==residuo) {
-			botonPulsado="division";
-			
 			if(lectura.getText().equals("")) {
 				lectura.setText(entrada.getText());
 				entrada.setText(entrada.getText());
