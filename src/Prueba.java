@@ -26,6 +26,15 @@ class Operaciones{
 	public double residuo(double n1, double n2) {
 		return n1%n2;
 	}
+	public double raiz(double n1) {
+		return (Math.sqrt(n1));
+	}
+	public double potencia(double n1) {
+		return (n1*n1);
+	}
+	public double fraccion(double n1) {
+		return (1/n1);
+	}
 }//class operaciones
 
 class Calculadora extends JFrame implements ActionListener{
@@ -137,6 +146,7 @@ class Calculadora extends JFrame implements ActionListener{
 		raiz.setContentAreaFilled(false);
 		raiz.setBorderPainted(false);
 		raiz.add(texto2);
+		raiz.addActionListener(this);
 		panel.add(raiz);
 		
 		JLabel texto3 = new JLabel("  χ²");
@@ -470,6 +480,12 @@ class Calculadora extends JFrame implements ActionListener{
 			lectura.setText(String.valueOf(op.dividir(num1, num2)));
 			entrada.setText("");
 		}//boton division
+		
+		if (e.getSource()==raiz) {
+			num1=Double.parseDouble(entrada.getText());
+			
+			entrada.setText(String.valueOf(op.raiz(num1)));
+		}//boton raiz
 		
 		if (e.getSource()==residuo) {
 			botonPulsado="division";
