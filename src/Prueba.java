@@ -157,6 +157,7 @@ class Calculadora extends JFrame implements ActionListener{
 		potencia.setContentAreaFilled(false);
 		potencia.setBorderPainted(false);
 		potencia.add(texto3);
+		potencia.addActionListener(this);
 		panel.add(potencia);
 		
 		JLabel texto4 = new JLabel("  1/x");
@@ -167,6 +168,7 @@ class Calculadora extends JFrame implements ActionListener{
 		fraccion.setContentAreaFilled(false);
 		fraccion.setBorderPainted(false);
 		fraccion.add(texto4);
+		fraccion.addActionListener(this);
 		panel.add(fraccion);
 		
 		//---------------------------
@@ -483,7 +485,6 @@ class Calculadora extends JFrame implements ActionListener{
 		
 		if (e.getSource()==raiz) {
 			num1=Double.parseDouble(entrada.getText());
-			
 			entrada.setText(String.valueOf(op.raiz(num1)));
 		}//boton raiz
 		
@@ -500,6 +501,11 @@ class Calculadora extends JFrame implements ActionListener{
 			lectura.setText(String.valueOf(op.residuo(num1, num2)));
 			entrada.setText("");
 		}//boton residuo
+		
+		if (e.getSource()==potencia) {
+			num1=Double.parseDouble(entrada.getText());
+			entrada.setText(String.valueOf(op.potencia(num1)));
+		}//Boton potencia
 		
 		if(e.getSource()==igual) {
 			if(botonPulsado.equals("suma")) {
