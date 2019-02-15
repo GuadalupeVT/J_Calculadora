@@ -181,6 +181,7 @@ class Calculadora extends JFrame implements ActionListener{
 		borrar.setBackground(Color.LIGHT_GRAY);
 		borrar.setBorderPainted(false);
 		borrar.add(texto7);
+		borrar.addActionListener(this);
 		panel.add(borrar);
 		
 		JLabel texto8= new JLabel("  ÷");
@@ -466,18 +467,24 @@ class Calculadora extends JFrame implements ActionListener{
 				entrada.setText(String.valueOf(op.multiplicar(n1, n2)));
 				lectura.setText("");
 			}
-				
 		} //Boton igual
-		
 		
 		if(e.getSource()==punto) {
 			
 			entrada.setText(entrada.getText()+".");
-			
 		}//boton punto
+		
+		
+		if (e.getSource()==borrar) {
+			String cadena=entrada.getText();
+			cadena=cadena.substring(0, cadena.length()-1);
+			entrada.setText(cadena);
+		}
 		}catch(NumberFormatException e1) {
 			JOptionPane.showMessageDialog(this,"Debes ingresar NUMEROS CORRECTOS");
-		}//catch
+		}catch(StringIndexOutOfBoundsException e2) {
+			JOptionPane.showMessageDialog(this,"No hay números que borrar");
+		}
 	}//actionPerformed
 }//class calculadora
 
