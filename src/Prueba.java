@@ -190,6 +190,7 @@ class Calculadora extends JFrame implements ActionListener{
 		division.setBackground(Color.LIGHT_GRAY);
 		division.setBorderPainted(false);
 		division.add(texto8);
+		division.addActionListener(this);
 		panel.add(division);
 		
 		//----------------------------------
@@ -230,6 +231,7 @@ class Calculadora extends JFrame implements ActionListener{
 		multiplicacion.setBackground(Color.LIGHT_GRAY);
 		multiplicacion.setBorderPainted(false);
 		multiplicacion.add(texto12);
+		multiplicacion.addActionListener(this);
 		panel.add(multiplicacion);
 		
 		//------------------------------------
@@ -427,6 +429,23 @@ class Calculadora extends JFrame implements ActionListener{
 			entrada.setText("");
 		}//boton resta
 		
+		if (e.getSource()==multiplicacion) {
+			botonPulsado="multiplicacion";
+			
+			if(lectura.getText().equals("")) {
+				num1=1;
+			}else {
+				num1=Double.parseDouble(lectura.getText());
+			}
+			if(entrada.getText().equals("")) {
+				num2=1;
+			}else {
+				num2=Double.parseDouble(entrada.getText());
+			}
+			lectura.setText(String.valueOf(op.multiplicar(num1, num2)));
+			entrada.setText("");
+		}//boton multiplicacion
+		
 		if(e.getSource()==igual) {
 			if(botonPulsado.equals("suma")) {
 				double n1=Double.parseDouble(lectura.getText());
@@ -438,6 +457,12 @@ class Calculadora extends JFrame implements ActionListener{
 				double n1=Double.parseDouble(lectura.getText());
 				double n2=Double.parseDouble(entrada.getText());
 				entrada.setText(String.valueOf(op.restar(n1, n2)));
+				lectura.setText("");
+			}
+			if(botonPulsado.equals("multiplicacion")) {
+				double n1=Double.parseDouble(lectura.getText());
+				double n2=Double.parseDouble(entrada.getText());
+				entrada.setText(String.valueOf(op.multiplicar(n1, n2)));
 				lectura.setText("");
 			}
 				
