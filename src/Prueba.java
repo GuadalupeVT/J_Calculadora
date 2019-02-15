@@ -343,6 +343,7 @@ class Calculadora extends JFrame implements ActionListener{
 		punto.setBackground(Color.LIGHT_GRAY);
 		punto.setBorderPainted(false);
 		punto.add(texto23);
+		punto.addActionListener(this);
 		panel.add(punto);
 		
 		JLabel texto24= new JLabel("  =");
@@ -365,7 +366,7 @@ class Calculadora extends JFrame implements ActionListener{
 		lectura.setHorizontalAlignment(4);
 		double num1=0,num2=0;
 		
-		
+		try {
 		if (e.getSource()==uno) {
 			entrada.setText(entrada.getText()+"1");
 		}
@@ -468,8 +469,17 @@ class Calculadora extends JFrame implements ActionListener{
 				
 		} //Boton igual
 		
-	}
-}
+		
+		if(e.getSource()==punto) {
+			
+			entrada.setText(entrada.getText()+".");
+			
+		}//boton punto
+		}catch(NumberFormatException e1) {
+			JOptionPane.showMessageDialog(this,"Debes ingresar NUMEROS CORRECTOS");
+		}//catch
+	}//actionPerformed
+}//class calculadora
 
 public class Prueba {
 	public static void main(String[] args) {
